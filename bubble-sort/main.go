@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+func main() {
+	inArray := []int{5, 2, 6, 7, 3, 2, 1, 4, 6}
+	fmt.Println("in:")
+
+	fmt.Printf("%v", inArray)
+
+	var length = len(inArray)
+	for i := 1; i < length; i++ {
+		for j := 0; j < length-i; j++ {
+			var current = inArray[j]
+			var next = inArray[j+1]
+			if current > next {
+				inArray[j+1] = current
+				inArray[j] = next
+			}
+		}
+	}
+	fmt.Println()
+	fmt.Println("out:")
+	fmt.Printf("%v", inArray)
+}
