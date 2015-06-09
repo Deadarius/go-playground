@@ -1,9 +1,10 @@
 package main
 
 import "fmt"
+import "math/rand"
 
 func main() {
-	inArray := []int{5, 2, 6, 7, 3, 2, 1, 4, 6}
+	inArray := rand.Perm(10)
 	fmt.Println("in:")
 	fmt.Printf("%v", inArray)
 	fmt.Println()
