@@ -31,7 +31,7 @@ func partition(arr []int, lo int, hi int) int {
 	pivotIndex := arr[(lo+hi)/2]
 	pivotValue := arr[pivotIndex]
 
-	swap(arr, pivotIndex, hi)
+	swap(&arr[pivotIndex], &arr[hi])
 
 	left := lo
 	right := hi - 1
@@ -46,16 +46,16 @@ func partition(arr []int, lo int, hi int) int {
 		}
 
 		if right > left {
-			swap(arr, left, right)
+			swap(&arr[left], &arr[right])
 		}
 	}
 
-	swap(arr, hi, left)
+	swap(&arr[hi], &arr[left])
 	return left
 }
 
-func swap(arr []int, first int, second int) {
-	temp := arr[first]
-	arr[first] = arr[second]
-	arr[second] = temp
+func swap(first *int, second *int) {
+	temp := *first
+	*first = *second
+	*second = temp
 }
